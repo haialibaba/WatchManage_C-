@@ -1,0 +1,649 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{693DA204-BF6F-4635-9831-F1DFC5CDD279}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>GUI</RootNamespace>
+    <AssemblyName>GUI</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EPPlus, Version=6.1.0.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.6.1.0\lib\net462\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.Interfaces, Version=6.1.0.0, Culture=neutral, PublicKeyToken=a694d7f3b0907a61, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.Interfaces.6.1.0\lib\net452\EPPlus.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.System.Drawing, Version=6.1.0.0, Culture=neutral, PublicKeyToken=2308d35469c9bac0, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.System.Drawing.6.1.0\lib\net462\EPPlus.System.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=1.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IO.RecyclableMemoryStream.1.4.1\lib\net46\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="BouncyCastle.Crypto, Version=1.9.0.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
+      <HintPath>..\packages\Portable.BouncyCastle.1.9.0\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.19.4.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.19.4\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4, Version=1.2.6.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.1.2.6\lib\net46\K4os.Compression.LZ4.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4.Streams, Version=1.2.6.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.Streams.1.2.6\lib\net46\K4os.Compression.LZ4.Streams.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Hash.xxHash, Version=1.0.6.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Hash.xxHash.1.0.6\lib\net46\K4os.Hash.xxHash.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.31.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.31\lib\net452\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Threading.Tasks" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ZstdNet, Version=1.4.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.31\lib\net452\ZstdNet.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\AddBaoHanh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popups\AddBaoHanh.Designer.cs">
+      <DependentUpon>AddBaoHanh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\AddDanhMuc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popups\AddDanhMuc.Designer.cs">
+      <DependentUpon>AddDanhMuc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\AddKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popups\AddKhachHang.Designer.cs">
+      <DependentUpon>AddKhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\AddNhaCungCap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popups\AddNhaCungCap.Designer.cs">
+      <DependentUpon>AddNhaCungCap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\AddNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popups\AddNhanVien.Designer.cs">
+      <DependentUpon>AddNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\AddSanPhamNhaCungCap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popups\AddSanPhamNhaCungCap.Designer.cs">
+      <DependentUpon>AddSanPhamNhaCungCap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\ShowChiTietPN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popups\ShowChiTietPN.Designer.cs">
+      <DependentUpon>ShowChiTietPN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\ShowChiTietPX.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popups\ShowChiTietPX.Designer.cs">
+      <DependentUpon>ShowChiTietPX.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\AddSPNCCToCart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popups\AddSPNCCToCart.Designer.cs">
+      <DependentUpon>AddSPNCCToCart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\editGioHangQLSP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popups\editGioHangQLSP.Designer.cs">
+      <DependentUpon>editGioHangQLSP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\HoaDonBanHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popups\HoaDonBanHang.Designer.cs">
+      <DependentUpon>HoaDonBanHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\HoaDonNhapHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popups\HoaDonNhapHang.Designer.cs">
+      <DependentUpon>HoaDonNhapHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\ModalPopupAddDMNV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popups\ModalPopupAddDMNV.Designer.cs">
+      <DependentUpon>ModalPopupAddDMNV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\ModalPopupUpdateDMNV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popups\ModalPopupUpdateDMNV.Designer.cs">
+      <DependentUpon>ModalPopupUpdateDMNV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\UpdateBaoHanh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popups\UpdateBaoHanh.Designer.cs">
+      <DependentUpon>UpdateBaoHanh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\UpdateChiTietBaoHanh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popups\UpdateChiTietBaoHanh.Designer.cs">
+      <DependentUpon>UpdateChiTietBaoHanh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\UpdateCTBH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popups\UpdateCTBH.Designer.cs">
+      <DependentUpon>UpdateCTBH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\UpdateDanhMuc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popups\UpdateDanhMuc.Designer.cs">
+      <DependentUpon>UpdateDanhMuc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\UpdateKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popups\UpdateKhachHang.Designer.cs">
+      <DependentUpon>UpdateKhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\UpdateNhaCungCap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popups\UpdateNhaCungCap.Designer.cs">
+      <DependentUpon>UpdateNhaCungCap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\UpdateNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popups\UpdateNhanVien.Designer.cs">
+      <DependentUpon>UpdateNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\UpdateSanPhamNhaCungCap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popups\UpdateSanPhamNhaCungCap.Designer.cs">
+      <DependentUpon>UpdateSanPhamNhaCungCap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\UpdateSanPhamQLSP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popups\UpdateSanPhamQLSP.Designer.cs">
+      <DependentUpon>UpdateSanPhamQLSP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\XacNhanThanhToan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popups\XacNhanThanhToan.Designer.cs">
+      <DependentUpon>XacNhanThanhToan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\XacNhanThucHien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popups\XacNhanThucHien.Designer.cs">
+      <DependentUpon>XacNhanThucHien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\BanHang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\BanHang.Designer.cs">
+      <DependentUpon>BanHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\BaoHanhQLBH.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\BaoHanhQLBH.Designer.cs">
+      <DependentUpon>BaoHanhQLBH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\ChiTietBaoHanhQLBH.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\ChiTietBaoHanhQLBH.Designer.cs">
+      <DependentUpon>ChiTietBaoHanhQLBH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\GioHangBanHang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\GioHangBanHang.Designer.cs">
+      <DependentUpon>GioHangBanHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\GioHangQLSP.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\GioHangQLSP.Designer.cs">
+      <DependentUpon>GioHangQLSP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\NhaCungCap.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\NhaCungCap.Designer.cs">
+      <DependentUpon>NhaCungCap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\NhapHangQLSP.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\NhapHangQLSP.Designer.cs">
+      <DependentUpon>NhapHangQLSP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\NhapXuat.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\NhapXuat.Designer.cs">
+      <DependentUpon>NhapXuat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\PhanQuyen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\PhanQuyen.Designer.cs">
+      <DependentUpon>PhanQuyen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\QuanLyBaoHanh.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\QuanLyBaoHanh.Designer.cs">
+      <DependentUpon>QuanLyBaoHanh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\QuanLyDanhMuc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\QuanLyDanhMuc.Designer.cs">
+      <DependentUpon>QuanLyDanhMuc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\QuanLyKhachHang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\QuanLyKhachHang.Designer.cs">
+      <DependentUpon>QuanLyKhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\QuanLyNhaCungCap.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\QuanLyNhaCungCap.Designer.cs">
+      <DependentUpon>QuanLyNhaCungCap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\QuanLyNhanVien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\QuanLyNhanVien.Designer.cs">
+      <DependentUpon>QuanLyNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\QuanLySanPham.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\QuanLySanPham.Designer.cs">
+      <DependentUpon>QuanLySanPham.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\SanPhamBanHangcs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\SanPhamBanHangcs.Designer.cs">
+      <DependentUpon>SanPhamBanHangcs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\SanPhamNhaCungCap.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\SanPhamNhaCungCap.Designer.cs">
+      <DependentUpon>SanPhamNhaCungCap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\SanPhamQLSP.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\SanPhamQLSP.Designer.cs">
+      <DependentUpon>SanPhamQLSP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Popups\SPConBanHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Popups\SPConBanHang.Designer.cs">
+      <DependentUpon>SPConBanHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\ThongKe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\ThongKe.Designer.cs">
+      <DependentUpon>ThongKe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\TrangChu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\TrangChu.Designer.cs">
+      <DependentUpon>TrangChu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\UCNhap.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\UCNhap.Designer.cs">
+      <DependentUpon>UCNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\UCXuat.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\UCXuat.Designer.cs">
+      <DependentUpon>UCXuat.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popups\AddBaoHanh.resx">
+      <DependentUpon>AddBaoHanh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popups\AddDanhMuc.resx">
+      <DependentUpon>AddDanhMuc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popups\AddKhachHang.resx">
+      <DependentUpon>AddKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popups\AddNhaCungCap.resx">
+      <DependentUpon>AddNhaCungCap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popups\AddNhanVien.resx">
+      <DependentUpon>AddNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popups\AddSanPhamNhaCungCap.resx">
+      <DependentUpon>AddSanPhamNhaCungCap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popups\AddSPNCCToCart.resx">
+      <DependentUpon>AddSPNCCToCart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popups\editGioHangQLSP.resx">
+      <DependentUpon>editGioHangQLSP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popups\HoaDonBanHang.resx">
+      <DependentUpon>HoaDonBanHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popups\HoaDonNhapHang.resx">
+      <DependentUpon>HoaDonNhapHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popups\ModalPopupAddDMNV.resx">
+      <DependentUpon>ModalPopupAddDMNV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popups\ModalPopupUpdateDMNV.resx">
+      <DependentUpon>ModalPopupUpdateDMNV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popups\ShowChiTietPN.resx">
+      <DependentUpon>ShowChiTietPN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popups\ShowChiTietPX.resx">
+      <DependentUpon>ShowChiTietPX.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popups\UpdateBaoHanh.resx">
+      <DependentUpon>UpdateBaoHanh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popups\UpdateChiTietBaoHanh.resx">
+      <DependentUpon>UpdateChiTietBaoHanh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popups\UpdateCTBH.resx">
+      <DependentUpon>UpdateCTBH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popups\UpdateDanhMuc.resx">
+      <DependentUpon>UpdateDanhMuc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popups\UpdateKhachHang.resx">
+      <DependentUpon>UpdateKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popups\UpdateNhaCungCap.resx">
+      <DependentUpon>UpdateNhaCungCap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popups\UpdateNhanVien.resx">
+      <DependentUpon>UpdateNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popups\UpdateSanPhamNhaCungCap.resx">
+      <DependentUpon>UpdateSanPhamNhaCungCap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popups\UpdateSanPhamQLSP.resx">
+      <DependentUpon>UpdateSanPhamQLSP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popups\XacNhanThanhToan.resx">
+      <DependentUpon>XacNhanThanhToan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popups\XacNhanThucHien.resx">
+      <DependentUpon>XacNhanThucHien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\BanHang.resx">
+      <DependentUpon>BanHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\BaoHanhQLBH.resx">
+      <DependentUpon>BaoHanhQLBH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\ChiTietBaoHanhQLBH.resx">
+      <DependentUpon>ChiTietBaoHanhQLBH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\GioHangBanHang.resx">
+      <DependentUpon>GioHangBanHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\GioHangQLSP.resx">
+      <DependentUpon>GioHangQLSP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\NhaCungCap.resx">
+      <DependentUpon>NhaCungCap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\NhapHangQLSP.resx">
+      <DependentUpon>NhapHangQLSP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\NhapXuat.resx">
+      <DependentUpon>NhapXuat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\PhanQuyen.resx">
+      <DependentUpon>PhanQuyen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\QuanLyBaoHanh.resx">
+      <DependentUpon>QuanLyBaoHanh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\QuanLyDanhMuc.resx">
+      <DependentUpon>QuanLyDanhMuc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\QuanLyKhachHang.resx">
+      <DependentUpon>QuanLyKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\QuanLyNhaCungCap.resx">
+      <DependentUpon>QuanLyNhaCungCap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\QuanLyNhanVien.resx">
+      <DependentUpon>QuanLyNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\QuanLySanPham.resx">
+      <DependentUpon>QuanLySanPham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\SanPhamBanHangcs.resx">
+      <DependentUpon>SanPhamBanHangcs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\SanPhamNhaCungCap.resx">
+      <DependentUpon>SanPhamNhaCungCap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\SanPhamQLSP.resx">
+      <DependentUpon>SanPhamQLSP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Popups\SPConBanHang.resx">
+      <DependentUpon>SPConBanHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\ThongKe.resx">
+      <DependentUpon>ThongKe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\TrangChu.resx">
+      <DependentUpon>TrangChu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\UCNhap.resx">
+      <DependentUpon>UCNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\UCXuat.resx">
+      <DependentUpon>UCXuat.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\DTO.ComboBoxDTO.datasource" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_search_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_box_50px_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_bank_cards_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_money_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{f92e6677-8a08-4b3d-8185-be9029f13f02}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{da550686-4c74-4022-888c-2bc90d921d0d}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\icons8_delete_24px.png" />
+    <Content Include="Resources\icons8_edit_property_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-add-25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-refresh-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-add-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-search-30.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
